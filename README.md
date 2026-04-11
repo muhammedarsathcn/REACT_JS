@@ -1,0 +1,1 @@
+This repository contains the collection of React.js projects that I developed during my internship. These projects helped me to understand the modern frontend development, reusable components, state management, API integration, and responsive UI implementation.
