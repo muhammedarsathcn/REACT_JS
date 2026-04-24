@@ -1,0 +1,31 @@
+@use "../../partials/mixins" as *;
+@use "../../partials/variables" as *;
+.navBar {
+  @include align-between;
+  padding: 45.1008px 72px 34.5px 72px;
+  .logoContainer {
+    @include center;
+    width: 8.6875rem;
+    height: 2.25rem;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      cursor: pointer;
+    }
+  }
+  .navLists {
+    @include center;
+    column-gap: 4.25rem;
+    .navList {
+      color: $primaryColor;
+      list-style: none;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 300ms linear;
+      &:hover {
+        color: $secondaryColor;
+      }
+    }
+  }
+}

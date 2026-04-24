@@ -1,0 +1,42 @@
+@use "../../partials/mixins" as *;
+@use "../../partials/variables" as *;
+.contactForm {
+  @include center;
+  flex-direction: column;
+  background-color: #f7f7f7;
+  row-gap: 37px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 93px 0 102px 0;
+  .formWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 20px;
+    .formContainer {
+      width: 100%;
+      .formHeading {
+        font-size: 44px;
+        font-weight: 450;
+        width: 100%;
+        color: $primaryColor;
+      }
+      .formDescription {
+        margin-top: 1.5px;
+        font-size: 23.4px;
+        font-weight: 400;
+        width: 100%;
+        color: $secondaryColor;
+      }
+    }
+  }
+  .formWrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 37px;
+    .btnContainer {
+      width: 100%;
+    }
+  }
+}

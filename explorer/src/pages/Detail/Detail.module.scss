@@ -1,0 +1,20 @@
+@use "../../partials/variables" as *;
+.descriptionWrapper {
+  padding: 122px;
+  font-size: 32px;
+  text-align: justify;
+  line-height: 1.4;
+  .description{
+    white-space: pre-line;
+  }
+  .similarDestinationHeading {
+    margin-top: 110px;
+    color: $primaryColor;
+    font-size: 45px;
+    font-weight: 500;
+  }
+  .similarDestinationSubheading {
+    color: $secondaryColor;
+    font-size: 25px;
+  }
+}

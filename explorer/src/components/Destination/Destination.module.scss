@@ -1,0 +1,23 @@
+@use "../../partials/variables" as *;
+
+.destinationContainer {
+  padding: 6.375rem 7.5rem 0 7.5rem;
+  margin-bottom: 80px;
+  .destinationHeading {
+    font-size: 2.8125rem;
+    font-weight: 500;
+    color: $primaryColor;
+    letter-spacing: 0.1437rem;
+  }
+  .destinationDescription {
+    padding-bottom: 3.1875rem;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: $secondaryColor;
+  }
+  .cardContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+}

@@ -1,0 +1,26 @@
+@use "../../partials/variables" as *;
+
+.button {
+  padding: 0.8rem 2.125rem;
+  background-color: $primaryColor;
+  color: #fff;
+  border: none;
+  font-size: 1.125rem;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    background-color 0.1s ease;
+  &:hover {
+    transform: scale(1.04);
+  }
+  &:active {
+    background-color: $secondaryColor;
+    transform: scale(0.98);
+  }
+}
+.medium {
+  padding: 0.8rem 1.505rem;
+}
+.large {
+  padding: 0.8rem 2.125rem
+}
