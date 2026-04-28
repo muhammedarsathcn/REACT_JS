@@ -1,7 +1,8 @@
 import React from "react";
 import Logo from "../../assets/logo.png";
 import styles from "./Navbar.module.scss";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { NAVLINKS } from "../../constants/NavbarConstant";
 const Navbar = () => {
   return (
     <nav className={styles.navBar}>
@@ -11,9 +12,13 @@ const Navbar = () => {
         </figure>
       </Link>
       <ul className={styles.navLists}>
-        <li className={styles.navList}>Hotels</li>
-        <li className={styles.navList}>Bike Rentals</li>
-        <li className={styles.navList}>Restaurants</li>
+        {NAVLINKS.map((link, _idx) => {
+          return (
+            <NavLink to={link.path} key={_idx} className={styles.navList}>
+              {link.label}
+            </NavLink>
+          );
+        })}
       </ul>
     </nav>
   );

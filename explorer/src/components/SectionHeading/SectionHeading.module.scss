@@ -1,0 +1,14 @@
+@use "../../partials/variables" as *;
+.heading {
+  font-size: 44px;
+  font-weight: 450;
+  width: 100%;
+  color: $primaryColor;
+}
+.description {
+  margin-top: 1.5px;
+  font-size: 23.4px;
+  font-weight: 400;
+  width: 100%;
+  color: $secondaryColor;
+}

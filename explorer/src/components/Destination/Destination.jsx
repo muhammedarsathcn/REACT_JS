@@ -1,22 +1,24 @@
 import Card from "../Card/Card";
 import styles from "./Destination.module.scss";
 import Loader from "../loader/Loader";
+import SectionHeading from "../SectionHeading/SectionHeading.jsx";
+import { DESTINATION_CONSTANT } from "../../constants/DestinationConstants";
+import PropTypes from "prop-types";
 const Destination = ({ places = [], isLoading }) => {
-  
   console.log(places);
   if (isLoading) {
     return (
-      <div className = {styles.loaderWrapper}>
+      <div className={styles.loaderWrapper}>
         <Loader />
       </div>
     );
   }
   return (
     <div className={styles.destinationContainer}>
-      <p className={styles.destinationHeading}>Destinations</p>
-      <p className={styles.destinationDescription}>
-        Just for you. Because you and your bike are special to us!
-      </p>
+      <SectionHeading
+        heading={DESTINATION_CONSTANT.heading}
+        description={DESTINATION_CONSTANT.description}
+      />
       <section className={styles.cardContainer}>
         {places.map((place, _idx) => {
           return (
@@ -31,6 +33,23 @@ const Destination = ({ places = [], isLoading }) => {
       </section>
     </div>
   );
+};
+
+// prop types for destination
+Destination.propTypes = {
+  places: PropTypes.arrayOf(
+    PropTypes.shape({
+      city: PropTypes.string.isRequired,
+      place: PropTypes.string.isRequired,
+      shortDescription: PropTypes.string.isRequired,
+    })
+  ),
+  isLoading: PropTypes.bool.isRequired,
+};
+
+//default props
+Destination.defaultProps = {
+  places: [],
 };
 
 export default Destination;

@@ -1,5 +1,7 @@
 import React from "react";
 import styles from "./Banner.module.scss";
+import PropTypes from "prop-types";
+//banner component to show toast after submitting contact form
 const Banner = ({ name, source, destination }) => {
   return (
     <div className={styles.bannerWrapper}>
@@ -12,4 +14,10 @@ const Banner = ({ name, source, destination }) => {
   );
 };
 
+//prop types for banner
+Banner.propTypes = {
+  name: PropTypes.string.isRequired,
+  source: PropTypes.string.isRequired,
+  destination: PropTypes.string.isRequired,
+};
 export default Banner;

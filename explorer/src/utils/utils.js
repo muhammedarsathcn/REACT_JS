@@ -9,6 +9,11 @@ const validationRule = {
   },
 };
 
+/**
+ * to flattened the places array of object to select
+ * @param {*} places to flatten select field object
+ * @returns flattened object to use in select field
+ */
 export const getPlaceOptions = (places=[]) => {
   return places.map((place) => ({
     label: place.city,
@@ -16,6 +21,12 @@ export const getPlaceOptions = (places=[]) => {
   }));
 };
 
+/**
+ * to check the validation of the input field
+ * @param {*} name of the input field
+ * @param {*} value of the input field
+ * @returns isValid and message 
+ */
 export const inputValidation = (name, value) => {
   const rule = validationRule[name];
   if (!rule) {

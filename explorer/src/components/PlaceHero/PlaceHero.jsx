@@ -1,5 +1,6 @@
 import styles from "./PlaceHero.module.scss";
 import HeroImg from "../../assets/HeroImg.png";
+import PropTypes from "prop-types";
 
 const PlaceHero = ({title,city, image}) => {
   return (
@@ -18,6 +19,12 @@ const PlaceHero = ({title,city, image}) => {
       </section>
     </div>
   );
+};
+//prop types for Place Hero
+PlaceHero.propTypes = {
+  title: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
 };
 
 export default PlaceHero;

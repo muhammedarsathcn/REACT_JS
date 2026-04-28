@@ -17,12 +17,13 @@
   .navLists {
     @include center;
     column-gap: 4.25rem;
-    .navList {
+    a {
       color: $primaryColor;
       list-style: none;
       cursor: pointer;
       font-weight: 500;
       transition: all 300ms linear;
+      text-decoration: none;
       &:hover {
         color: $secondaryColor;
       }

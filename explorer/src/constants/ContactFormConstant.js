@@ -10,6 +10,7 @@ export const FORM_FIELDS = [
     label: "Name",
     required: true,
     autoComplete: "off",
+    placeholder: "E.g John Doe",
   },
   {
     type: "select",
@@ -31,5 +32,6 @@ export const FORM_FIELDS = [
     label: "Contact Number",
     required: true,
     autoComplete: "off",
+    placeholder: "E.g 9443663804",
   },
 ];

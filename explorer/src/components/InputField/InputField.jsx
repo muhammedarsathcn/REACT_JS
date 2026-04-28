@@ -42,7 +42,8 @@ const InputField = ({
           onChange={onChange}
           name={name}
           id={name}
-          className={`${styles.inputField} ${className}`}
+            className={`${styles.inputField} ${className}`}
+          placeholder={placeholder}
           {...rest}
         />
       )}

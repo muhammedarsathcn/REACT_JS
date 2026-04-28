@@ -1,30 +1,31 @@
-import { Car } from "lucide-react";
 import Card from "../Card/Card";
 import styles from "./Recommendation.module.scss";
 import { useEffect, useState } from "react";
 import { fetchIndividualPlace } from "../../services/place.api";
+import Loader from "../loader/Loader";
+import PropTypes from "prop-types";
 const Recommendation = ({ recommended = [] }) => {
   const [relatedPlaces, setRelatedPlaces] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const fetchAllRelatedPlace = async () => {
-    try {
-      setIsLoading(true);
-      const results = await Promise.all(
-        recommended.map((place) => fetchIndividualPlace(place)),
-      );
-      setRelatedPlaces(results);
-    } catch (err) {
-      console.log(err);
-    } finally {
-      setIsLoading(false);
-    }
-  };
 
   useEffect(() => {
-    fetchAllRelatedPlace()
-  },[recommended])
+    const fetchAllRelatedPlace = async () => {
+      try {
+        setIsLoading(true);
+        const results = await Promise.all(
+          recommended.map((place) => fetchIndividualPlace(place)),
+        );
+        setRelatedPlaces(results);
+      } catch (err) {
+        console.log(err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchAllRelatedPlace();
+  }, [recommended]);
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <Loader />;
   }
   return (
     <section className={styles.recommendationWrapper}>
@@ -40,6 +41,16 @@ const Recommendation = ({ recommended = [] }) => {
       })}
     </section>
   );
+};
+
+//prop types for recommendation
+Recommendation.propTypes = {
+  recommended: PropTypes.arrayOf(PropTypes.string),
+};
+
+//default prop types for recommendation
+Recommendation.defaultProps = {
+  recommended: [],
 };
 
 export default Recommendation;

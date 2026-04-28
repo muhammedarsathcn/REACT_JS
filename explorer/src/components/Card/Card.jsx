@@ -2,6 +2,7 @@ import styles from "./Card.module.scss";
 import Button from "../Button/Button";
 import { useNavigate } from "react-router-dom";
 import { images } from "../../constants/Images";
+import PropTypes from "prop-types";
 const Card = ({ place, city, shortDescription }) => {
   const navigate = useNavigate();
   const handleBtnClick = () => {
@@ -26,6 +27,12 @@ const Card = ({ place, city, shortDescription }) => {
       </span>
     </article>
   );
+};
+
+Card.propTypes = {
+  place: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired,
+  shortDescription: PropTypes.string.isRequired,
 };
 
 export default Card;

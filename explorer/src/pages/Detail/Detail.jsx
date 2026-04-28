@@ -7,26 +7,27 @@ import { fetchIndividualPlace } from "../../services/place.api";
 import toast from "react-hot-toast";
 import { images } from "../../constants/Images";
 import Loader from "../../components/loader/Loader";
+import SectionHeading from "../../components/SectionHeading/SectionHeading";
+import { DETAIL_CONSTANTS } from "../../constants/DetailConstant";
 const Detail = () => {
   const { place } = useParams();
   console.log(place);
   const [placeDetail, setPlaceDetails] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-  const fetchPlace = async () => {
-    try {
-      setIsLoading(true);
-      const response = await fetchIndividualPlace(place);
-      console.log(response);
-      setPlaceDetails(response);
-    } catch (err) {
-      toast.error("Something went wrong");
-    } finally {
-      setIsLoading(false);
-    }
-  };
 
   useEffect(() => {
-    console.log("Inside useEffect");
+    const fetchPlace = async () => {
+      try {
+        setIsLoading(true);
+        const response = await fetchIndividualPlace(place);
+        setPlaceDetails(response);
+      } catch (err) {
+        console.error(err);
+        toast.error("Something went wrong");
+      } finally {
+        setIsLoading(false);
+      }
+    };
     fetchPlace();
   }, [place]);
 
@@ -44,14 +45,10 @@ const Detail = () => {
         <p className={styles.description}>
           {placeDetail.fullDescription?.replace(/\\n/g, "\n")}
         </p>
-        <section className={styles.similarDestinationWrapper}>
-          <p className={styles.similarDestinationHeading}>
-            Similar Destinations
-          </p>
-          <p className={styles.similarDestinationSubheading}>
-            Because you liked {placeDetail.city}
-          </p>
-        </section>
+        <SectionHeading
+          heading={DETAIL_CONSTANTS.heading}
+          description={`${DETAIL_CONSTANTS.description} ${place}`}
+        />
         <Recommendation recommended={placeDetail.relatedPlaces} />
       </section>
     </div>

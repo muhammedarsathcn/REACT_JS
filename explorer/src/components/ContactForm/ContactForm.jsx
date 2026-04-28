@@ -5,9 +5,11 @@ import {
   CONTACT_FORM_DESCRIPTIONS,
   FORM_FIELDS,
 } from "../../constants/ContactFormConstant";
+import PropTypes from "prop-types";
 import { fetchAllPlaces } from "../../services/place.api";
 import { useEffect, useState } from "react";
 import { getPlaceOptions } from "../../utils/utils";
+import SectionHeading from "../SectionHeading/SectionHeading";
 const ContactForm = ({
   contactFormData,
   handleFormChange,
@@ -15,13 +17,12 @@ const ContactForm = ({
 }) => {
   const [places, setPlaces] = useState([]);
 
-  const fetchPlaces = async () => {
-    const response = await fetchAllPlaces();
-    console.log("inside",response)
-    setPlaces(response);
-  };
-
   useEffect(() => {
+    const fetchPlaces = async () => {
+      const response = await fetchAllPlaces();
+      console.log("inside", response);
+      setPlaces(response);
+    };
     fetchPlaces();
   }, []);
 
@@ -34,12 +35,10 @@ const ContactForm = ({
     <section className={styles.contactForm}>
       <section className={styles.formWrapper}>
         <section className={styles.formContainer}>
-          <p className={styles.formHeading}>
-            {CONTACT_FORM_DESCRIPTIONS.heading}
-          </p>
-          <p className={styles.formDescription}>
-            {CONTACT_FORM_DESCRIPTIONS.description}
-          </p>
+          <SectionHeading
+            heading={CONTACT_FORM_DESCRIPTIONS.heading}
+            description={CONTACT_FORM_DESCRIPTIONS.description}
+          />
         </section>
 
         <form className={styles.formWrapper} onSubmit={(e) => handleSubmit(e)}>
@@ -65,6 +64,7 @@ const ContactForm = ({
                 name={field.name}
                 required={field.required}
                 autoComplete={field.autoComplete}
+                placeholder={field.placeholder}
                 key={_idx}
               />
             ),
@@ -78,6 +78,12 @@ const ContactForm = ({
       </section>
     </section>
   );
+};
+//prop types for contact form
+ContactForm.propTypes = {
+  contactFormData: PropTypes.object.isRequired,
+  handleFormChange: PropTypes.func.isRequired,
+  handleFormSubmit: PropTypes.func.isRequired,
 };
 
 export default ContactForm;
