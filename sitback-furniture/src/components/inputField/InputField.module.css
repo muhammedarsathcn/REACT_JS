@@ -1,0 +1,21 @@
+.inputFieldContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  .inputLabel {
+    font-size: 21px;
+  }
+  .inputField {
+    width: 100%;
+    padding: 1.5rem 0.625rem;
+    background-color: transparent;
+    color: #fff;
+    border: 0.0625rem solid #fff;
+    font-size: 1.25rem;
+    &:focus {
+      outline: none;
+    }
+  }
+}

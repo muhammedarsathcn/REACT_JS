@@ -1,0 +1,23 @@
+.mainLayout {
+  display: flex;
+  padding-left: 2.9375rem;
+  padding-top: 7.3125rem;
+  transition: all 0.3s linear;
+}
+.fullWidth .mainSections {
+  flex: 1;
+}
+
+.withCart .mainSections {
+  flex: 1;
+  margin-right: 420px;
+}
+
+.cartSection {
+  width: 420px;
+  position: fixed;
+  height: 100vh;
+  top: 70px;
+  right: 0;
+  background-color: #f7f7f7;
+}

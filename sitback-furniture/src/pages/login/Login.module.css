@@ -1,0 +1,9 @@
+.loginContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  height: 100vh;
+  padding-top: 166px;
+  padding-right: 6.5625rem;
+  background: url("../../assets/login-bg.jpg") no-repeat center;
+}
