@@ -9,7 +9,7 @@ const validationRule = {
   },
 };
 
-export const getPlaceOptions = (places) => {
+export const getPlaceOptions = (places=[]) => {
   return places.map((place) => ({
     label: place.city,
     value: place.city.toLowerCase(),

@@ -7,6 +7,5 @@ export const fetchAllPlaces = async () => {
 
 export const fetchIndividualPlace = async (place) => {
     const response = await api.get(`/places/${place.toLowerCase()}`);
-    console.log(response.data)
     return response.data
 }
