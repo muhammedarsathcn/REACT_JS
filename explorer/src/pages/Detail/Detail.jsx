@@ -11,7 +11,6 @@ import SectionHeading from "../../components/SectionHeading/SectionHeading";
 import { DETAIL_CONSTANTS } from "../../constants/DetailConstant";
 const Detail = () => {
   const { place } = useParams();
-  console.log(place);
   const [placeDetail, setPlaceDetails] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
@@ -43,7 +42,7 @@ const Detail = () => {
       />
       <section className={styles.descriptionWrapper}>
         <p className={styles.description}>
-          {placeDetail.fullDescription?.replace(/\\n/g, "\n")}
+          {placeDetail.fullDescription?.replace(/\\n/g, "\n\n")}
         </p>
         <SectionHeading
           heading={DETAIL_CONSTANTS.heading}

@@ -1,7 +1,8 @@
+//validation rule 
 const validationRule = {
   name: {
     regex: /^[A-Za-z]{2,50}$/,
-    message: "Name must contains only letters and space. ",
+    message: "Enter a valid name.",
   },
   phoneNo: {
     regex: /^[6-9]\d{9}$/,

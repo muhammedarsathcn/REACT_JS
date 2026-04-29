@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { fetchIndividualPlace } from "../../services/place.api";
 import Loader from "../loader/Loader";
 import PropTypes from "prop-types";
+import toast from "react-hot-toast";
 const Recommendation = ({ recommended = [] }) => {
   const [relatedPlaces, setRelatedPlaces] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -18,6 +19,7 @@ const Recommendation = ({ recommended = [] }) => {
         setRelatedPlaces(results);
       } catch (err) {
         console.log(err);
+        toast.error("Something went wrong")
       } finally {
         setIsLoading(false);
       }

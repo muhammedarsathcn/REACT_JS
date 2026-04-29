@@ -3,9 +3,9 @@ import Home from "../pages/Home/Home";
 import Detail from "../pages/Detail/Detail";
 import NotFound from "../pages/NotFound/NotFound";
 import Layout from "../Layout/Layout";
-import Hotels from "../pages/Hotels/Hotel";
-import Bikes from "../pages/Bikes/Bike";
-import Restaurants from "../pages/Restaurants/Restaurants";
+import Hotels from "../pages/Hotel/Hotel";
+import Bikes from "../pages/Bike/Bike";
+import Restaurants from "../pages/Restaurant/Restaurants";
 const Routings = () => {
   return (
     <Routes>

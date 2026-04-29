@@ -1,6 +1,18 @@
 .recommendationWrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  margin-top: 31px;
+  gap: 1.875rem;
+  margin-top: 1.9375rem;
+}
+
+@media (max-width: 1024px) {
+  .recommendationWrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .recommendationWrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }

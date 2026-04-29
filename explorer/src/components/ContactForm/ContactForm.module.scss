@@ -4,16 +4,17 @@
   @include center;
   flex-direction: column;
   background-color: #f7f7f7;
-  row-gap: 37px;
-  margin-left: 5px;
-  margin-right: 5px;
-  padding: 93px 0 102px 0;
+  row-gap: 2.3125rem;
+  margin-left: 0.3125rem;
+  margin-right: 0.3125rem;
+  padding: 5.8125rem 0 6.375rem 0;
   .formWrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    row-gap: 20px;
+ 
+    row-gap: 1.25rem;
     .formContainer {
       width: 100%;
     }
@@ -21,7 +22,7 @@
   .formWrapper {
     display: flex;
     flex-direction: column;
-    row-gap: 37px;
+    row-gap: 2.3125rem;
     .btnContainer {
       width: 100%;
     }

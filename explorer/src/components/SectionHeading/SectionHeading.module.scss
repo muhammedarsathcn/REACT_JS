@@ -1,13 +1,13 @@
 @use "../../partials/variables" as *;
 .heading {
-  font-size: 44px;
+  font-size: 2.75rem;
   font-weight: 450;
   width: 100%;
   color: $primaryColor;
 }
 .description {
-  margin-top: 1.5px;
-  font-size: 23.4px;
+  margin-top: 0.0938rem;
+  font-size: 1.4625rem;
   font-weight: 400;
   width: 100%;
   color: $secondaryColor;

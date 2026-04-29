@@ -2,7 +2,7 @@
 @use "../../partials/variables" as *;
 .navBar {
   @include align-between;
-  padding: 45.1008px 72px 34.5px 72px;
+  padding: 45.1008px 4.5rem 2.1563rem 4.5rem;
   .logoContainer {
     @include center;
     width: 8.6875rem;

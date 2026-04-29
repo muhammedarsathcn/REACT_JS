@@ -2,70 +2,80 @@
 @use "../../partials/mixins" as *;
 
 .heroContainer {
-    @include flex-start;
-    position: relative;
-    padding: 0.4rem 0.5rem;
+  @include flex-start;
+  position: relative;
+  padding: 0.4rem 0.5rem;
 
-    .leftSection {
-        display: flex;
-        flex-direction: column;
-        row-gap: 2.375rem;
-        flex: 41.96%;
-        padding-top: 13.875rem;
-        padding-left: 9.25rem;
+  .leftSection {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2.375rem;
+    flex: 41.96%;
+    padding-top: 13.875rem;
+    padding-left: 9.25rem;
+    width: 100%;
+    .heroText {
+      width: 100%;
+      text-align: left;
+      color: $primaryColor;
+      font-size: 4.5rem;
+      font-weight: 400;
+      line-height: 1.2;
+      word-spacing: 0.25rem;
+      strong {
+        font-weight: 450;
+      }
+    }
+
+    .chooseContainer {
+      position: absolute;
+      padding: 3.4375rem 4.625rem 3.125rem 3.125rem;
+      left: 7.5rem;
+      bottom: 7.2188rem;
+      width: 65.125rem;
+      background-color: $primaryColor;
+      color: #fff;
+      font-size: 4.0625rem;
+      font-weight: 600;
+      p {
+        line-height: 1.5;
+      }
+    }
+    .temperatureWrapper {
+      position: absolute;
+      bottom: 1.4375rem;
+      font-size: 3.4375rem;
+    }
+  }
+
+  .rightSection {
+    flex: 59.25%;
+
+    .heroImageContainer {
+      height: 46.8125rem;
+
+      img {
         width: 100%;
-        .heroText {
-            width: 100%;
-            text-align: left;
-            color: $primaryColor;
-            font-size: 4.5rem;
-            font-weight: 400;
-            line-height: 1.2;
-            word-spacing: 0.25rem;
-
-            strong {
-                font-weight: 450;
-            }
-        }
-
-        .chooseContainer {
-            position: absolute;
-            padding: 55px 74px 50px 50px;
-            left: 120px;
-            bottom: 115.5px;
-            width: 1042px;
-            background-color: $primaryColor;
-            color: #fff;
-            font-size: 65px;
-            font-weight: 600;
-            p{
-                line-height: 1.5;
-            }
-            
-        }
-
-        .temperatureWrapper {
-            position: absolute;
-            bottom: 23px;
-            font-size: 55px;
-        }
+        height: 100%;
+        object-fit: cover;
+      }
     }
+  }
+}
 
-    .rightSection {
-        flex: 59.25%;
-
-        .heroImageContainer {
-            height: 749px;
-
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-        }
+@media (max-width: 1024px) {
+  .heroContainer {
+    flex-direction: column-reverse;
+    .leftSection {
+        padding: 0.625rem;
+      .chooseContainer {
+        position: static;
+        padding: 0.625rem;
+        width: 100%;
+      }
+      .temperatureWrapper{
+        position: static;
+      }
     }
-
-    .overflowInputField {
-        background-color: #fff !important;
-    }
+  }
 }

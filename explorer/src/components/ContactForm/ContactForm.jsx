@@ -20,7 +20,6 @@ const ContactForm = ({
   useEffect(() => {
     const fetchPlaces = async () => {
       const response = await fetchAllPlaces();
-      console.log("inside", response);
       setPlaces(response);
     };
     fetchPlaces();

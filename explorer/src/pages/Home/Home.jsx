@@ -13,6 +13,7 @@ const Home = () => {
         const response = await fetchAllPlaces();
         setPlaces(response);
       } catch (err) {
+        console.error(err)
         toast.error("Something went wrong");
       } finally {
         setIsLoading(false);
