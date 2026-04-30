@@ -2,13 +2,14 @@ import { Outlet } from "react-router-dom";
 import Header from "../components/header/Header";
 import styles from "./MainLayout.module.css";
 import Cart from "../components/cart/Cart";
+import useCart from "../hooks/useCart";
 
 // import { CartContext } from "../context/CartContext";
 
 const MainLayout = () => {
-  // const { cartItems } = useContext(CartContext);
+  const { products } = useCart();
 
-  const hasCartItems = true;
+  const hasCartItems = products.length > 0;
 
   return (
     <>
