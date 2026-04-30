@@ -16,7 +16,7 @@ const CartCard = ({
       </figure>
       <span className={styles.descriptionAndPrice}>
         <p>{name}</p>
-        <p className={styles.price}> ₹{price}</p>
+        <p className={styles.price}> ₹{price.toLocaleString("en-IN")}</p>
       </span>
       <span className={styles.incrementAndDecrementContainer}>
         <span

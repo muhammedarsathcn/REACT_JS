@@ -6,6 +6,7 @@ import MainLayout from "../layout/MainLayout";
 import Premium from "../pages/premium/Premium";
 import Chairs from "../pages/chairs/Chairs";
 import ProtectedRoute from "./ProtectedRoute";
+import Order from "../pages/order/Order";
 const RoutePage = () => {
   return (
     <Router>
@@ -22,6 +23,7 @@ const RoutePage = () => {
               </ProtectedRoute>
             }
           />
+        <Route path="/order-confirmation" element={<Order />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

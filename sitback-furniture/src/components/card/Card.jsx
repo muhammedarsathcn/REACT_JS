@@ -2,7 +2,16 @@ import styles from "./Card.module.css";
 import Button from "../button/Button";
 import { ShieldCheck } from "lucide-react";
 import useCart from "../../hooks/useCart";
-const Card = ({ id, name, price, description, guarantee, image }) => {
+const Card = ({
+  id,
+  name,
+  price,
+  description,
+  guarantee,
+  image,
+  quantity,
+  isOrder = false,
+}) => {
   const { handleAddProduct } = useCart();
   return (
     <article className={styles.cardContainer}>
@@ -11,29 +20,35 @@ const Card = ({ id, name, price, description, guarantee, image }) => {
       </figure>
       <span className={styles.titleAndPrice}>
         <p>{name}</p>
-        <p>₹{price}</p>
+        <p>₹{price.toLocaleString("en-IN")}</p>
       </span>
-      <p className={styles.description}>{description}</p>
-      <p className={styles.guarantee}>
-        <span>
-          <ShieldCheck />
-        </span>
-        {guarantee}
-      </p>
-      <div className={styles.btnContainer}>
-        <Button
-          handleOnclick={() =>
-            handleAddProduct({
-              id,
-              name,
-              price,
-              image,
-            })
-          }
-        >
-          ADD TO CART
-        </Button>
-      </div>
+      
+      <p className={styles.description}>{quantity && <p className={styles.description}>Quantity: {quantity}</p>}{description}</p>
+      {!isOrder && (
+        <p className={styles.guarantee}>
+          <span>
+            <ShieldCheck />
+          </span>
+          {guarantee}
+        </p>
+      )}
+      {!isOrder && (
+        <div className={styles.btnContainer}>
+          <Button
+            handleOnclick={() =>
+              handleAddProduct({
+                id,
+                name,
+                price,
+                image,
+                description,
+              })
+            }
+          >
+            ADD TO CART
+          </Button>
+        </div>
+      )}
     </article>
   );
 };

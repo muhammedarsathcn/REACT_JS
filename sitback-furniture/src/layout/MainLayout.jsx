@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Header from "../components/header/Header";
 import styles from "./MainLayout.module.css";
 import Cart from "../components/cart/Cart";
@@ -8,21 +8,24 @@ import useCart from "../hooks/useCart";
 
 const MainLayout = () => {
   const { products } = useCart();
+  const path = useLocation();
+  const location = path.pathname;
+  const hideCartRoutes = ["/order-confirmation"];
 
-  const hasCartItems = products.length > 0;
+  const isCart = products.length > 0 && !hideCartRoutes.includes(location);
 
   return (
     <>
       <Header />
       <main
         className={`${styles.mainLayout} ${
-          hasCartItems ? styles.withCart : styles.fullWidth
+          isCart ? styles.withCart : styles.fullWidth
         }`}
       >
         <section className={styles.mainSections}>
           <Outlet />
         </section>
-        {hasCartItems && (
+        {isCart && (
           <section className={styles.cartSection}>
             <Cart />
           </section>
