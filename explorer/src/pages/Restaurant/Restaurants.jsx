@@ -2,7 +2,7 @@ import React from 'react'
 
 const Restaurants = () => {
   return (
-    <div>Restaurants</div>
+    <div>Restaurants coming soon...</div>
   )
 }
 
