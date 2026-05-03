@@ -17,3 +17,9 @@ export const fetchIndividualPlace = async (place) => {
     const response = await api.get(`/places/${place.toLowerCase()}`);
     return response.data
 }
+
+export const fetchWeather = async (place) => {
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${place}&appid=${import.meta.env.VITE_API_KEY}&units=metric`);
+    const data = await response.json();
+    return data;
+}

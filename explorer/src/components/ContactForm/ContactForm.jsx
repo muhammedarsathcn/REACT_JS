@@ -6,24 +6,15 @@ import {
   FORM_FIELDS,
 } from "../../constants/ContactFormConstant";
 import PropTypes from "prop-types";
-import { fetchAllPlaces } from "../../services/place.api";
-import { useEffect, useState } from "react";
 import { getPlaceOptions } from "../../utils/utils";
 import SectionHeading from "../SectionHeading/SectionHeading";
+import usePlaces from "../../hooks/usePlaces";
 const ContactForm = ({
   contactFormData,
   handleFormChange,
   handleFormSubmit,
 }) => {
-  const [places, setPlaces] = useState([]);
-
-  useEffect(() => {
-    const fetchPlaces = async () => {
-      const response = await fetchAllPlaces();
-      setPlaces(response);
-    };
-    fetchPlaces();
-  }, []);
+  const { places } = usePlaces();
 
   const fieldOptions = getPlaceOptions(places);
   const handleSubmit = (e) => {

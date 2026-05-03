@@ -4,8 +4,9 @@ import Loader from "../loader/Loader";
 import SectionHeading from "../SectionHeading/SectionHeading.jsx";
 import { DESTINATION_CONSTANT } from "../../constants/DestinationConstants";
 import PropTypes from "prop-types";
-const Destination = ({ places = [], isLoading }) => {
-  console.log(places);
+import usePlaces from "../../hooks/usePlaces.jsx";
+const Destination = () => {
+  const { places, isLoading } = usePlaces();
   if (isLoading) {
     return (
       <div className={styles.loaderWrapper}>

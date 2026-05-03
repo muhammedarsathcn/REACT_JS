@@ -2,7 +2,7 @@ import styles from "./PlaceHero.module.scss";
 import HeroImg from "../../assets/HeroImg.png";
 import PropTypes from "prop-types";
 
-const PlaceHero = ({title,city, image}) => {
+const PlaceHero = ({title,city, image, temp}) => {
   return (
     <div className={styles.heroContainer}>
       <section className={styles.leftSection}>
@@ -10,7 +10,7 @@ const PlaceHero = ({title,city, image}) => {
         <section className={styles.chooseContainer}>
           <p>{title}</p>
         </section>
-        <p className={styles.temperatureWrapper}>32&deg;C</p>
+        <p className={styles.temperatureWrapper}>{temp}&deg;C</p>
       </section>
       <section className={styles.rightSection}>
         <figure className={styles.heroImageContainer}>

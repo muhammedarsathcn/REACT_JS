@@ -1,31 +1,17 @@
 import Card from "../Card/Card";
 import styles from "./Recommendation.module.scss";
-import { useEffect, useState } from "react";
-import { fetchIndividualPlace } from "../../services/place.api";
 import Loader from "../loader/Loader";
 import PropTypes from "prop-types";
-import toast from "react-hot-toast";
+import { useMemo } from "react";
+import usePlaces from "../../hooks/usePlaces";
 const Recommendation = ({ recommended = [] }) => {
-  const [relatedPlaces, setRelatedPlaces] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    const fetchAllRelatedPlace = async () => {
-      try {
-        setIsLoading(true);
-        const results = await Promise.all(
-          recommended.map((place) => fetchIndividualPlace(place)),
-        );
-        setRelatedPlaces(results);
-      } catch (err) {
-        console.log(err);
-        toast.error("Something went wrong")
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    fetchAllRelatedPlace();
-  }, [recommended]);
+  const { places, isLoading } = usePlaces();
+  const relatedPlaces = useMemo(() => {
+    return recommended.map((place) =>
+      places.find((data) => data.city === place),
+    );
+  }, [places, recommended]);
+  
   if (isLoading) {
     return <Loader />;
   }

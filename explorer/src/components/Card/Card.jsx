@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 const Card = ({ place, city, shortDescription }) => {
   const navigate = useNavigate();
   const handleBtnClick = () => {
-    navigate(`/detail/${city}`);
+    navigate(`/detail/${city.toLowerCase()}`);
     window.scrollTo(0, 0);
   };
 

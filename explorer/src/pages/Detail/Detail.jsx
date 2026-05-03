@@ -2,32 +2,36 @@ import { useParams } from "react-router-dom";
 import PlaceHero from "../../components/PlaceHero/PlaceHero";
 import Recommendation from "../../components/Recommendation/Recommendation";
 import styles from "./Detail.module.scss";
-import { useEffect, useState } from "react";
-import { fetchIndividualPlace } from "../../services/place.api";
-import toast from "react-hot-toast";
 import { images } from "../../constants/Images";
 import Loader from "../../components/loader/Loader";
 import SectionHeading from "../../components/SectionHeading/SectionHeading";
 import { DETAIL_CONSTANTS } from "../../constants/DetailConstant";
+import { useEffect } from "react";
+import { fetchIndividualPlace, fetchWeather } from "../../services/place.api";
+import { toast } from "react-hot-toast";
+import { useState } from "react";
 const Detail = () => {
   const { place } = useParams();
-  const [placeDetail, setPlaceDetails] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
 
+  const [placeDetail, setPlaceDetail] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [temperature, setTemperature] = useState(0);
   useEffect(() => {
-    const fetchPlace = async () => {
+    const fetchPlaceDetail = async () => {
       try {
         setIsLoading(true);
         const response = await fetchIndividualPlace(place);
-        setPlaceDetails(response);
+        const weatherResponse = await fetchWeather(place);
+        setTemperature(weatherResponse.main.temp)
+        setPlaceDetail(response);
       } catch (err) {
         console.error(err);
-        toast.error("Something went wrong");
+        toast.error("something went wrong");
       } finally {
         setIsLoading(false);
       }
     };
-    fetchPlace();
+    fetchPlaceDetail();
   }, [place]);
 
   if (isLoading) {
@@ -39,6 +43,7 @@ const Detail = () => {
         title={placeDetail.place}
         image={images[placeDetail.city?.toLowerCase()]}
         city={placeDetail.city}
+        temp={temperature}
       />
       <section className={styles.descriptionWrapper}>
         <p className={styles.description}>
