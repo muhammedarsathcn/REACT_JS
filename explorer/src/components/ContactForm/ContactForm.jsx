@@ -31,7 +31,7 @@ const ContactForm = ({
           />
         </section>
 
-        <form className={styles.formWrapper} onSubmit={(e) => handleSubmit(e)}>
+        <form className={styles.formTextWrapper} onSubmit={(e) => handleSubmit(e)}>
           {FORM_FIELDS.map((field, _idx) =>
             field.type === "select" ? (
               <InputField

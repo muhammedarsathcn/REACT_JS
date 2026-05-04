@@ -1,14 +1,17 @@
 @use "../../partials/variables" as *;
 .descriptionWrapper {
-  padding: 7.625rem;
+  padding: 6.375rem 7.5rem 0 7.5rem;
   font-size: 2rem;
-  text-align: justify;
+
   line-height: 1.4;
   margin-bottom: 6.25rem;
   .description{
     white-space: pre-line;
+    text-align: justify;
     margin-bottom: 5.5rem;
+    color: #363131;
   }
+
  
 }
 

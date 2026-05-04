@@ -1,7 +1,8 @@
 .recommendationWrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.875rem;
+  row-gap: 87px;
+  column-gap: 1.875rem;
   margin-top: 1.9375rem;
 }
 

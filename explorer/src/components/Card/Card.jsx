@@ -21,7 +21,7 @@ const Card = ({ place, city, shortDescription }) => {
         <p className={styles.cardDescription}>{shortDescription}</p>
       </div>
       <span className={styles.cardBtnContainer}>
-        <Button variant={"medium"} handleClick={handleBtnClick}>
+        <Button variant={"small"} handleClick={handleBtnClick}>
           READ MORE
         </Button>
       </span>

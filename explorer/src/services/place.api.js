@@ -19,7 +19,7 @@ export const fetchIndividualPlace = async (place) => {
 }
 
 export const fetchWeather = async (place) => {
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${place}&appid=${import.meta.env.VITE_API_KEY}&units=metric`);
+    const response = await fetch(`${import.meta.env.VITE_WEATHER_API}?q=${place}&appid=${import.meta.env.VITE_API_KEY}&units=metric`);
     const data = await response.json();
     return data;
 }
