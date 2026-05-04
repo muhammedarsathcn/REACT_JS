@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "../pages/login/Login";
-import Couches from "../pages/couches/Couches";
+import Products from '../pages/couches/Products';
 import NotFound from "../pages/not-found/NotFound";
 import MainLayout from "../layout/MainLayout";
 import Premium from "../pages/premium/Premium";
-import Chairs from "../pages/chairs/Chairs";
+
 import ProtectedRoute from "./ProtectedRoute";
 import Order from "../pages/order/Order";
 const RoutePage = () => {
@@ -13,8 +13,7 @@ const RoutePage = () => {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route element={<MainLayout />}>
-          <Route path="/products/couches" element={<Couches />} />
-          <Route path="/products/chairs" element={<Chairs />} />
+          <Route path="/products/:category" element={<Products />} />
           <Route
             path="/products/premium"
             element={
@@ -23,7 +22,7 @@ const RoutePage = () => {
               </ProtectedRoute>
             }
           />
-        <Route path="/order-confirmation" element={<Order />} />
+          <Route path="/order-confirmation" element={<Order />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

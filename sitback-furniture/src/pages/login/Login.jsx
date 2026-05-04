@@ -31,7 +31,7 @@ const Login = () => {
         username: user.username,
         isLoading: false,
       });
-      navigate("/products/couches");
+      navigate("/products/couch");
     }
     else {
       toast.error("Invalid credentials")

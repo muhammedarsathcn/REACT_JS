@@ -2,20 +2,7 @@ import styles from "./Header.module.css";
 import { useAuth } from "../../hooks/useAuth";
 import { useNavigate, NavLink } from "react-router-dom";
 import Logout from "../Logout/Logout";
-const navLinks = [
-  {
-    label: "COUCHES",
-    path: "/products/couches",
-  },
-  {
-    label: "CHAIRS",
-    path: "/products/chairs",
-  },
-  {
-    label: "PREMIUM *",
-    path: "/products/premium",
-  },
-];
+import {NAVLINKS} from "../../constants/Navbar.constant"
 
 const Header = () => {
   const navigate = useNavigate();
@@ -37,7 +24,7 @@ const Header = () => {
     <nav className={styles.headerContainer}>
       <p onClick={() => handleClickList("/products/couches")}>SITBACK</p>
       <ul>
-        {navLinks.map((link, _idx) => {
+        {NAVLINKS.map((link, _idx) => {
           return (
             <NavLink
               key={_idx}
