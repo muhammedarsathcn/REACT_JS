@@ -1,14 +1,15 @@
 import Card from "../../components/card/Card";
+import { useAuth } from "../../hooks/useAuth";
 import useCart from "../../hooks/useCart";
 import styles from "./Order.module.css";
 const Order = () => {
   const { products } = useCart();
-
+  const { name } = useAuth();
   return (
     <div className={styles.orderContainer}>
       <p className={styles.orderHeading}>Order Confirmation</p>
       <p className={styles.orderGreeting}>
-        Thank you Nijin, for shopping with us. The items will be delivered
+        Thank you {name}, for shopping with us. The items will be delivered
         within 7 days
       </p>
       <div className={styles.orderWrapper}>

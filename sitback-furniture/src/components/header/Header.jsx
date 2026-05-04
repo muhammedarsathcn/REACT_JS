@@ -1,5 +1,7 @@
 import styles from "./Header.module.css";
+import { useAuth } from "../../hooks/useAuth";
 import { useNavigate, NavLink } from "react-router-dom";
+import Logout from "../Logout/Logout";
 const navLinks = [
   {
     label: "COUCHES",
@@ -20,6 +22,17 @@ const Header = () => {
   const handleClickList = (path) => {
     navigate(path);
   };
+
+  const {  setAuth } = useAuth();
+  const handleSelectChange = (e) => {
+    if (e.target.value === "logout") {
+      setAuth({
+        username: "",
+        name: "",
+      });
+      navigate("/");
+    }
+  };
   return (
     <nav className={styles.headerContainer}>
       <p onClick={() => handleClickList("/products/couches")}>SITBACK</p>
@@ -38,9 +51,8 @@ const Header = () => {
           );
         })}
       </ul>
-      <span className={styles.loginNowBtn} onClick={() => handleClickList("/")}>
-        Login Now
-      </span>
+
+      <Logout handleSelectChange={handleSelectChange} />
     </nav>
   );
 };

@@ -1,8 +1,10 @@
-import React from 'react'
 
+import styles from './Chair.module.css'
 const Chairs = () => {
   return (
-    <div>Chairs</div>
+    <div className={styles.chairContainer}>
+      <p>Chairs will coming soon...</p>
+    </div>
   )
 }
 
