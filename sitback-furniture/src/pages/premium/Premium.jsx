@@ -6,8 +6,6 @@ const Premium = () => {
     <section className={styles.premiumContainer}>
       <div className={styles.imgContainer}>
         <img src={image} alt="premium_image" />
-
-        {/* 🔥 Overlay Content */}
         <div className={styles.overlay}>
           <h1>
             The <span>Belgian</span> Premium Couch

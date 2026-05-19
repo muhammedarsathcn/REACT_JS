@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 const Cart = () => {
   const {
     products,
+    placeOrders,
     handleAddProduct,
     handleDecreaseProduct,
     removeFromCart,
@@ -13,6 +14,7 @@ const Cart = () => {
   } = useCart();
   const navigate = useNavigate();
   const handleNavigate = () => {
+    placeOrders();
     navigate("/order-confirmation");
   };
   return (
@@ -41,7 +43,6 @@ const Cart = () => {
           <p className={styles.totalAmount}>TOTAL AMOUNT</p>
           <p>₹{total.toLocaleString("en-IN")}</p>
         </span>
-
         <span>
           <Button handleOnclick={handleNavigate}>Place Order</Button>
         </span>

@@ -1,12 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "../pages/login/Login";
-import Products from '../pages/couches/Products';
+import Products from "../pages/products/Products";
 import NotFound from "../pages/not-found/NotFound";
 import MainLayout from "../layout/MainLayout";
 import Premium from "../pages/premium/Premium";
 
 import ProtectedRoute from "./ProtectedRoute";
 import Order from "../pages/order/Order";
+import OrderProtectRoute from "./OrderProtectRoute";
 const RoutePage = () => {
   return (
     <Router>
@@ -22,7 +23,14 @@ const RoutePage = () => {
               </ProtectedRoute>
             }
           />
-          <Route path="/order-confirmation" element={<Order />} />
+          <Route
+            path="/order-confirmation"
+            element={
+              <OrderProtectRoute>
+                <Order />
+              </OrderProtectRoute>
+            }
+          />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

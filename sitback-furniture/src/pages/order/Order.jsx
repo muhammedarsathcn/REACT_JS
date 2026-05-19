@@ -1,10 +1,13 @@
+
 import Card from "../../components/card/Card";
 import { useAuth } from "../../hooks/useAuth";
 import useCart from "../../hooks/useCart";
 import styles from "./Order.module.css";
 const Order = () => {
-  const { products } = useCart();
+  const { orders } = useCart();
   const { name } = useAuth();
+
+  console.log(orders)
   return (
     <div className={styles.orderContainer}>
       <p className={styles.orderHeading}>Order Confirmation</p>
@@ -13,7 +16,7 @@ const Order = () => {
         within 7 days
       </p>
       <div className={styles.orderWrapper}>
-        {products.map((product, _idx) => {
+        {orders.map((product, _idx) => {
           return (
             <Card
               id={product.id}

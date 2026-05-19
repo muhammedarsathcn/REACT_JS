@@ -22,7 +22,7 @@ const Header = () => {
   };
   return (
     <nav className={styles.headerContainer}>
-      <p onClick={() => handleClickList("/products/couches")}>SITBACK</p>
+      <p onClick={() => handleClickList("/products/couch")}>SITBACK</p>
       <ul>
         {NAVLINKS.map((link, _idx) => {
           return (

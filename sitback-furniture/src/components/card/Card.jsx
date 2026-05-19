@@ -22,8 +22,11 @@ const Card = ({
         <p>{name}</p>
         <p>₹{price.toLocaleString("en-IN")}</p>
       </span>
-      
-      <p className={styles.description}>{quantity && <p className={styles.description}>Quantity: {quantity}</p>}{description}</p>
+
+      <div className={styles.description}>
+        {quantity && <p className={styles.quantity}>Quantity: {quantity}</p>}
+        <p>{description}</p>
+      </div>
       {!isOrder && (
         <p className={styles.guarantee}>
           <span>

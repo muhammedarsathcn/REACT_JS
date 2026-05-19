@@ -1,10 +1,10 @@
 
 .cartCardContainer {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   border-radius: 16px;
-
+  position: relative;
   width: 90%;
   box-shadow: 0px 2px 10px 0 rgba(0, 0, 0, 0.25);
   .imageContainer {
@@ -48,5 +48,12 @@
         }
         .increment, .decrement{
             cursor: pointer;
+        }
+
+        .trashIcon{
+          position: relative;
+          left: 50px;
+          cursor: pointer;
+          color:#ff0000;
         }
 }

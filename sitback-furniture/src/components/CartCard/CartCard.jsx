@@ -1,4 +1,5 @@
 import styles from "./CartCard.module.css";
+import { Trash2 } from "lucide-react";
 const CartCard = ({
   id,
   image,
@@ -17,6 +18,20 @@ const CartCard = ({
       <span className={styles.descriptionAndPrice}>
         <p>{name}</p>
         <p className={styles.price}> ₹{price.toLocaleString("en-IN")}</p>
+      </span>
+      <span
+        className={styles.trashIcon}
+        onClick={() =>
+          deleteProduct({
+            id,
+            name,
+            price,
+            quantity,
+            image,
+          })
+        }
+      >
+        <Trash2 />
       </span>
       <span className={styles.incrementAndDecrementContainer}>
         <span

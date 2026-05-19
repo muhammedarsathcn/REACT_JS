@@ -1,22 +1,19 @@
-// src/services/ProductService.js
 export const fetchProductsByCategory = async (category) => {
-    try {
-      console.log(category)
-    const response = await fetch("/products.json");
-
+  try {
+    const url = import.meta.env.VITE_PRODUCT_URL;
+    const response = await fetch(url);
     if (!response.ok) {
       throw new Error("Failed to fetch products");
     }
-
-        const data = await response.json();
-        console.log(data)
-    const filtered = data.products.filter(
-      (item) => item.category === category
+    const data = await response.json();
+    const products = data || [];
+    const filtered = products.filter(
+      (item) =>
+        item.category?.toLowerCase() === category?.toLowerCase()
     );
-console.log(filtered)
     return filtered;
   } catch (error) {
-    console.error(error);
+    console.error("Error:", error);
     return [];
   }
 };
