@@ -1,0 +1,34 @@
+@use "../../partials/variables" as *;
+
+.destinationContainer {
+  padding: 6.375rem 7.5rem 0 7.5rem;
+  margin-bottom: 5rem;
+  .cardContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 87px;
+    column-gap: 1.875rem;
+    margin-top: 3.125rem;
+  }
+}
+
+
+@media (max-width:1024px){
+  .destinationContainer{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .cardContainer{
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media (max-width:768px) {
+  .destinationContainer {
+      .cardContainer {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+}

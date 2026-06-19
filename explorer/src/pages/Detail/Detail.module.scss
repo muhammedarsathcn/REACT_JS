@@ -1,0 +1,22 @@
+@use "../../partials/variables" as *;
+.descriptionWrapper {
+  padding: 6.375rem 7.5rem 0 7.5rem;
+  font-size: 2rem;
+
+  line-height: 1.4;
+  margin-bottom: 5.7rem;
+  .description{
+    white-space: pre-line;
+    text-align: justify;
+    margin-bottom: 5.5rem;
+    color: #363131;
+  }
+
+ 
+}
+
+@media (max-width:1024px){
+  .descriptionWrapper{
+    padding: 1.25rem;
+  }
+}

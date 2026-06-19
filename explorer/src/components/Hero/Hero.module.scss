@@ -1,0 +1,82 @@
+@use "../../partials/variables" as *;
+@use "../../partials/mixins" as *;
+.heroContainer {
+  @include flex-start;
+  position: relative;
+  padding: 0 0.5rem;
+  .leftSection {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2.375rem;
+    flex: 41.96%;
+    padding-top: 10.875rem;
+    padding-left: 9.25rem;
+    width: 100%;
+    .greetingText {
+      color: $secondaryColor;
+      font-size: 1.3125rem;
+      text-align: left;
+      letter-spacing: 0.1125rem;
+      font-weight: 450;
+    }
+    .heroText {
+      width: 100%;
+      text-align: left;
+      color: $primaryColor;
+      font-size: 4.5rem;
+      font-weight: 300;
+      line-height: 1.2;
+      word-spacing: 0.25rem;
+      strong {
+        font-weight: 450;
+      }
+    }
+    .chooseContainer {
+      position: absolute;
+      bottom: 5.7813rem;
+    }
+    .buttonWrapper {
+      position: absolute;
+      bottom: 1.4375rem;
+    }
+  }
+  .rightSection {
+    flex: 57.25%;
+    .heroImageContainer {
+      height: 46.365rem;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+  .overflowInputField {
+    background-color: #fff;
+  }
+}
+
+@media (max-width: 1024px) {
+  .heroContainer {
+    margin: 0;
+    flex-direction: column-reverse;
+    .leftSection {
+    padding-top: 2.875rem;
+      padding-left: 0.4rem;
+      .chooseContainer {
+        position: static;
+      }
+      .buttonWrapper {
+        margin-top: 1.25rem;
+        margin-bottom: 2rem;
+        position: static;
+      }
+    }
+    .rightSection {
+      flex: 1;
+    }
+    .overflowInputField {
+      width: 100%;
+    }
+  }
+}

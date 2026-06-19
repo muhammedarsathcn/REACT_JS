@@ -1,0 +1,33 @@
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  .cardImgContainer {
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  .cardTitle {
+    font-size: 2.05rem;
+    font-weight: 300;
+    margin-top: 0.8rem;
+    word-spacing: 4px;
+  }
+  .cardDistrict {
+    margin-top: 0.5625rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+  .cardDescription {
+    margin-top: 1.8rem;
+    font-size: 1.1rem;
+    font-weight: "200";
+    line-height: 1.25;
+  }
+  .cardBtnContainer {
+    margin-top: 1.1rem;
+  }
+}

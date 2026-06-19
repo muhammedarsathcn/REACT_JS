@@ -1,0 +1,72 @@
+@use "../../partials/variables" as *;
+
+.inputFieldContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  label {
+    font-size: 1.5rem;
+  }
+}
+.inputField {
+  width: 43.75rem;
+  padding: 1.6563rem 1.8125rem;
+  border: 0.0625rem solid #000;
+  font-size: 1.0625rem;
+  color: #808080;
+  background-color: transparent;
+  &:focus {
+    outline-color: $primaryColor;
+  }
+}
+
+.selectWrapper {
+  width: 100%;
+  position: relative;
+}
+
+.selectField {
+  width: 43.725rem;
+  padding: 1.6563rem 1.8125rem;
+  border: 0.0625rem solid #000;
+  font-size: 1.0625rem;
+  color: #808080;
+  background-color: transparent;
+  appearance: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  &:focus {
+    outline-color: $primaryColor;
+  }
+  .option {
+    padding: 0.625rem;
+    background: white;
+    color: #333;
+  }
+}
+
+.selectIcon {
+  position: absolute;
+  right: 1.8125rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 0.375rem solid transparent;
+  border-right: 0.375rem solid transparent;
+  border-top: 0.375rem solid black;
+  z-index: 20;
+  pointer-events: none;
+}
+
+
+@media(max-width:64rem){
+  .inputField{
+width: 25rem;
+  }
+  .selectField{
+    width: 25rem;
+  }
+}

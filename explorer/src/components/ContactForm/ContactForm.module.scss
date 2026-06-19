@@ -1,0 +1,30 @@
+@use "../../partials/mixins" as *;
+@use "../../partials/variables" as *;
+.contactForm {
+  @include center;
+  flex-direction: column;
+  background-color: #f7f7f7;
+  row-gap: 1.7125rem;
+  margin-left: 0.3125rem;
+  margin-right: 0.3125rem;
+  padding: 5.4125rem 0 6.375rem 0;
+  .formWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+ 
+    row-gap: 2.50rem;
+    .formContainer {
+      width: 100%;
+    }
+  }
+  .formTextWrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+    .btnContainer {
+      width: 100%;
+    }
+  }
+}
